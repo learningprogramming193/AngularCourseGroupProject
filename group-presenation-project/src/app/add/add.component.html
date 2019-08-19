@@ -1,0 +1,91 @@
+<p>Add Products</p>
+<h4>{{ message }}</h4>
+<form [formGroup]="productFormGroup">
+  <mat-form-field>
+    <mat-label>Product English</mat-label>
+    <input placeholder="Product English *" matInput formControlName = "productDescriptionEnglish"/>    
+    <mat-hint *ngIf="productFormGroup.controls.productDescriptionEnglish.untouched" align="end"
+      [ngStyle]="{color: hintColor}">
+      Product English is required
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Product French</mat-label>
+    <input placeholder="Product French *" matInput formControlName="productDescriptionFrench" />
+    <mat-hint *ngIf="productFormGroup.controls.productDescriptionFrench.untouched" align="end"
+      [ngStyle]="{color: hintColor}">
+      Product French is required
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Band Name English</mat-label>
+    <input matInput placeholder="Brand Name English *" formControlName="brandNameEnglish" />
+    <mat-hint *ngIf="productFormGroup.controls.brandNameEnglish.untouched" align="end"
+      [ngStyle]="{color: hintColor}">
+      Brand Name English is required
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Band Name French</mat-label>
+    <input matInput placeholder="Brand Name French *" formControlName="brandNameFrench" />
+    <mat-hint align="end" *ngIf="productFormGroup.controls.brandNameFrench.untouched"
+      [ngStyle]="{color: hintColor}">
+      Brand Name French is required
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Product Type</mat-label>
+    <mat-select formControlName = "productType">
+        <mat-option *ngFor="let product of products" [value]="product.value">
+          {{product.viewValue}}
+        </mat-option>
+    </mat-select>
+    <mat-hint align="end" *ngIf="productFormGroup.controls.productType.untouched"
+      [ngStyle]="{color: hintColor}">
+      Product Type is required
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Additional Product Identification</mat-label>
+    <input matInput placeholder="Additional Product Identification *" formControlName="additionalProductIdentification" />
+    <mat-hint align="end" *ngIf="productFormGroup.controls.additionalProductIdentification.untouched"
+      [ngStyle]="{color: hintColor}">
+      Additional Product Identification is required
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Target Market *</mat-label>
+    <mat-select formControlName = "targetMarket">
+      <mat-option *ngFor="let market of markets" [value]="market.value">
+        {{market.viewValue}}
+      </mat-option>
+    </mat-select>
+    <mat-hint align="end" *ngIf="productFormGroup.controls.targetMarket.untouched"
+      [ngStyle]="{color: hintColor}">
+      Target Market is required
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Product Image URL</mat-label>
+    <input matInput placeholder="Product Image URL *" formControlName="productImageUrl" />
+    <mat-hint *ngIf="productFormGroup.controls.productImageUrl.untouched" align="end"
+      [ngStyle]="{color: hintColor}">
+      Product Image URL is required
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status *</mat-label>
+    <mat-select formControlName = "status">
+      <mat-option *ngFor="let status of statuses" [value]="status.value">
+        {{status.viewValue}}
+      </mat-option>
+    </mat-select>
+    <mat-hint align="end" *ngIf="productFormGroup.controls.status.untouched" [ngStyle]="{color: hintColor}">
+      Status is required
+    </mat-hint>
+  </mat-form-field>
+  <div class="buttonContainer">
+    <button mat-raised-button [disabled]="productFormGroup.invalid" color="primary" (click)="add(productFormGroup.value)">Add</button>
+    <button mat-flat-button>Cancel</button>
+  </div>
+</form>

@@ -1,0 +1,17 @@
+<p>Search Products</p>
+
+<div class="example-container" [formGroup]="addcomponentReactiveForm">
+  <mat-form-field>
+    <input placeholder="Product ID" matInput formControlName="productId" />
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Product Description" matInput formControlName="productDescription" />
+  </mat-form-field>
+  Value:{{addcomponentReactiveForm.value | json}}
+</div> 
+<div class="buttonContainer">
+  <button mat-raised-button>Reset</button>
+  <button mat-flat-button [disabled]="addcomponentReactiveForm.invalid" color="primary" (click) = "search()">Search Products</button>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,47 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    font-family: Georgia, serif;
+    font-size: 10pt;
+    margin:16px;
+  }
+  
+  .example-container {
+    width: 92%;
+    font-family: Georgia, serif;
+    font-size: 10pt;
+    margin:10px;
+  }
+
+  p{
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 25px;
+    font-family: Georgia, serif;
+  }
+
+  .buttonContainer{
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+  
+ form{
+    display: flex;
+    flex-direction: column;
+    font-family: Georgia, serif;
+    font-size: 10pt;    
+  }
+
+  .example-panel-red.mat-select-panel {
+    background: rgba(255, 0, 0, 0.5);
+  }
+  
+  .example-panel-green.mat-select-panel {
+    background: rgba(0, 255, 0, 0.5);
+  }
+  
+  .example-panel-blue.mat-select-panel {
+    background: rgba(0, 0, 255, 0.5);
+  }
