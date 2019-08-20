@@ -1,0 +1,94 @@
+<p>Search Products</p>
+<h4>{{ message }}</h4>
+
+<div class="example-container" [formGroup]="addcomponentReactiveForm">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-8">
+  <mat-form-field>
+    <input placeholder="Product ID" matInput formControlName="productId" />
+  </mat-form-field>
+</div>
+  </div>
+  <div class="row justify-content-center align-items-center">
+      <div class="col-8">
+  <mat-form-field>
+    <input placeholder="Product Description" matInput formControlName="productDescription" />
+  </mat-form-field>
+  </div>
+  </div>
+  
+  <!--Value:{{addcomponentReactiveForm.value | json}}-->
+  <!--Value: {{products$ | json}} -->
+</div>
+<div class="buttonContainer">
+  <button (click)="resetting()" mat-raised-button>Reset</button>
+  <button (click)="toggleCollapse()" mat-flat-button color="primary">Search Products</button>
+</div>
+<br><br>
+<div class="example-container">
+<div *ngIf="this.isProducts">
+    <table class="table table-striped table-responsive-md btn-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Product Desc (En)</th>
+        <th>Product Desc (Fr)</th>
+        <th>Brand (En)</th>
+        <th>Brand (Fr)</th>
+        <th>Type</th>
+        <!--<th>additionalProductIdentification</th>-->
+        <th>Target Market</th>
+        <!--<th>productImageUrl</th>-->
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let product of products$'>
+        <td>{{product.id}}</td>
+        <td>{{product.productDescriptionEnglish}}</td>
+        <td>{{product.productDescriptionFrench}}</td>
+        <td>{{product.brandNameEnglish}}</td>
+        <td>{{product.brandNameFrench}}</td>
+        <td>{{product.productType}}</td>
+        <!--<td>{{product.additionalProductIdentification}}</td>-->
+        <td>{{product.targetMarket}}</td>
+        <!--<td>{{product.productImageUrl}}</td> -->
+        <td>{{product.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="this.isProduct">
+    <table class="table table-striped table-responsive-md btn-table">
+      <thead>
+      <tr>
+          <th>ID</th>
+          <th>Product Desc (En)</th>
+          <th>Product Desc (Fr)</th>
+          <th>Brand (En)</th>
+          <th>Brand (Fr)</th>
+          <th>Type</th>
+          <!--<th>additionalProductIdentification</th>-->
+          <th>Target Market</th>
+          <!--<th>productImageUrl</th>-->
+          <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--<tr *ngFor='let product of products$'>-->
+      <td>{{products$.id}}</td>
+      <td>{{products$.productDescriptionEnglish}}</td>
+      <td>{{products$.productDescriptionFrench}}</td>
+      <td>{{products$.brandNameEnglish}}</td>
+      <td>{{products$.brandNameFrench}}</td>
+      <td>{{products$.productType}}</td>
+      <!--<td>{{products$.additionalProductIdentification}}</td>-->
+      <td>{{products$.targetMarket}}</td>
+      <!--<td>{{products$.productImageUrl}}</td>-->
+      <td>{{products$.status}}</td>
+      <!-- </tr>-->
+    </tbody>
+  </table>
+</div>
+</div>
+<router-outlet></router-outlet>
