@@ -15,7 +15,6 @@ export class SearchComponent implements OnInit {
   private products$: Product[];
   // Collapsing logic
   isProducts = false;
-  isProduct = false;
   objectLEngth = 0;
   // passing a key value pair object to the new FormGroup constructors.
   // passing an instance of formcontrol
@@ -41,11 +40,12 @@ export class SearchComponent implements OnInit {
         console.log('Product id ' + Object.keys(data).length);
         if (this.products$ === undefined || this.products$ === null || this.products$.length === undefined || this.products$.length === 0){
           this.message = "No Product found.";
+          this.objectLEngth = 0;
         }else{
           this.objectLEngth = this.products$.length;
-          this.tableCollapseLogic(this.objectLEngth);
-          console.log(this.objectLEngth);
         }
+        this.tableCollapseLogic(this.objectLEngth);
+        console.log(this.objectLEngth);
       });
     }
     // tslint:disable-next-line: triple-equals
@@ -57,11 +57,12 @@ export class SearchComponent implements OnInit {
         }
         if (this.products$ === undefined || this.products$ === null || this.products$.length === undefined || this.products$.length === 0){
           this.message = "No Product found.";
+          this.objectLEngth = 0;
         }else{
           this.objectLEngth = this.products$.length;
-          this.tableCollapseLogic(this.objectLEngth);
-          console.log(this.objectLEngth);
         }
+        this.tableCollapseLogic(this.objectLEngth);
+        console.log(this.objectLEngth);
       });
     }
     // tslint:disable-next-line: triple-equals
@@ -72,11 +73,12 @@ export class SearchComponent implements OnInit {
         console.log('Product id ' + Object.keys(data).length);
         if (this.products$ === undefined || this.products$ === null || this.products$.length === undefined || this.products$.length === 0){
           this.message = "No Product found.";
+          this.objectLEngth = 0;
         }else{
           this.objectLEngth = this.products$.length;
-          this.tableCollapseLogic(this.objectLEngth);
-          console.log(this.objectLEngth);
         }
+        this.tableCollapseLogic(this.objectLEngth);
+        console.log(this.objectLEngth);
       });
     }
     // tslint:disable-next-line: triple-equals
@@ -87,11 +89,12 @@ export class SearchComponent implements OnInit {
         console.log('Product id ' + Object.keys(data).length);
         if (this.products$ === undefined || this.products$ === null || this.products$.length === undefined || this.products$.length === 0){
           this.message = "No Product found.";
+          this.objectLEngth = 0;
         }else{
           this.objectLEngth = this.products$.length;
-          this.tableCollapseLogic(this.objectLEngth);
-          console.log(this.objectLEngth);
         }
+        this.tableCollapseLogic(this.objectLEngth);
+          console.log(this.objectLEngth);
       });
     }
     
@@ -99,17 +102,14 @@ export class SearchComponent implements OnInit {
 
   resetting() {
     this.isProducts = false;
-    this.isProduct = false;
     this.addcomponentReactiveForm.controls.productId.setValue('');
     this.addcomponentReactiveForm.controls.productDescription.setValue('');
   }
   tableCollapseLogic(objectLength) {
     // tslint:disable-next-line: triple-equals
-    if (objectLength == undefined) {
-      this.isProduct = true;
+    if (objectLength == undefined || objectLength === 0) {
       this.isProducts = false;
     } else {
-      this.isProduct = false;
       this.isProducts = true;
     }
   }
